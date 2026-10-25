@@ -65,23 +65,8 @@
             </div>
           </article>
 
-          <article class="game-card coming-card">
-            <div class="game-art coming-art"><span class="coming-icon">✳</span><span class="coming-orbit"></span><span class="coming-label">YOUR NEXT QUEST</span></div>
-            <div class="game-info">
-              <div class="game-title-row"><div><p class="game-category">NEW ADVENTURE</p><h3>Something is brewing</h3></div><span class="status-pill soon">COMING SOON</span></div>
-              <p>More mini-games, puzzles, and playful challenges are on the way. Watch this space!</p>
-              <span class="text-link muted-link">Stay curious <span aria-hidden="true">✦</span></span>
-            </div>
-          </article>
-
-          <article class="game-card coming-card">
-            <div class="game-art puzzle-art"><span class="puzzle-piece piece-a">+</span><span class="puzzle-piece piece-b">?</span><span class="puzzle-piece piece-c">○</span><span class="coming-label">MORE TO DISCOVER</span></div>
-            <div class="game-info">
-              <div class="game-title-row"><div><p class="game-category">PUZZLES • PLAY</p><h3>The next big idea</h3></div><span class="status-pill soon">COMING SOON</span></div>
-              <p>This shelf has room for your next favourite. New games will show up here as they launch.</p>
-              <span class="text-link muted-link">In the works <span aria-hidden="true">✦</span></span>
-            </div>
-          </article>
+          <div class="discovery-status" id="discovery-status" role="status" aria-live="polite">Finding more games…</div>
+          <div class="discovered-games" id="discovered-games"></div>
         </div>
       </section>
 
@@ -94,5 +79,6 @@
 
     <footer class="footer"><a class="footer-brand" href="./">tappytoe<span>®</span></a><p>Made with curiosity <span aria-hidden="true">✦</span> One game at a time.</p><a href="#top" class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top ↑</a></footer>
   </div>
+  <script src="js/games.js" defer></script>
 </body>
 </html>
