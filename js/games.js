@@ -79,7 +79,7 @@
         .sort((a, b) => a.name.localeCompare(b.name));
 
       if (games.length === 0) {
-        status.textContent = "More games will appear here automatically when you publish a public repository with the “tappytoe-game” topic.";
+        status.textContent = "";
         return;
       }
 
