@@ -8,9 +8,10 @@
   const grid = document.getElementById("discovered-games");
 
   function displayName(repoName) {
-    return repoName
+    const knownNames = { "sg-primary-exam": "Primary Quest" };
+    return knownNames[repoName.toLowerCase()] || repoName
       .replace(/[-_]+/g, " ")
-      .replace(/\b\w/g, (letter) => letter.toUpperCase());
+      .replace(/\\b\\w/g, (letter) => letter.toUpperCase());
   }
 
   function createGameCard(repo) {
