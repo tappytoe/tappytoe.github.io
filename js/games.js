@@ -7,7 +7,7 @@
   const grid = document.getElementById("discovered-games");
 
   function displayName(repoName) {
-    const knownNames = { "sg-primary-exam": "Primary Quest", "math-market": "Maths Market" };
+    const knownNames = { "sg-primary-exam": "Primary Quest", "maths-market": "Maths Market" };
     return knownNames[repoName.toLowerCase()] || repoName
       .replace(/[-_]+/g, " ")
       .replace(/\b\w/g, (letter) => letter.toUpperCase());
@@ -48,7 +48,7 @@
     const description = document.createElement("p");
     const knownDescriptions = {
       "sg-primary-exam": "A playful Singapore Primary 3–5 maths adventure.",
-      "math-market": "A colourful maths adventure for Primary 1–6. Explore, solve, and play."
+      "maths-market": "A colourful maths adventure for Primary 1–6. Explore, solve, and play."
     };
     description.textContent = knownDescriptions[repo.name.toLowerCase()] || repo.description || "A little game to learn and play.";
 
