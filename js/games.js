@@ -23,6 +23,21 @@
       ? repo.homepage
       : "https://" + OWNER + ".github.io/" + encodeURIComponent(repo.name) + "/";
     art.setAttribute("aria-label", "Play " + displayName(repo.name));
+    const thumbnail = document.createElement("img");
+    thumbnail.className = "game-thumbnail";
+    thumbnail.alt = "";
+    thumbnail.loading = "lazy";
+    thumbnail.src = "https://raw.githubusercontent.com/" + OWNER + "/" + encodeURIComponent(repo.name) + "/main/thumbnail.svg";
+    thumbnail.onerror = function () {
+      if (!thumbnail.dataset.pngFallback) {
+        thumbnail.dataset.pngFallback = "1";
+        thumbnail.src = "https://raw.githubusercontent.com/" + OWNER + "/" + encodeURIComponent(repo.name) + "/main/thumbnail.png";
+      } else {
+        thumbnail.remove();
+      }
+    };
+    art.appendChild(thumbnail);
+
     const artLabel = document.createElement("span");
     artLabel.className = "art-label";
     artLabel.textContent = "LEARN & PLAY";
