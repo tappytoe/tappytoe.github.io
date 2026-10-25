@@ -15,9 +15,12 @@ The home portal for TappyToe's growing collection of small, thoughtful games.
 2. Publish the game using GitHub Pages. For a project site, the usual URL is `https://tappytoe.github.io/REPOSITORY-NAME/`.
 3. Open the repository's **About** settings (gear icon near the top-right of the repository page) and add the topic **`tappytoe-game`**.
 4. Add a short repository description. The portal uses it as the card description.
-5. Wait a minute, then refresh https://tappytoe.github.io/.
+5. Add a custom thumbnail named **`thumbnail.svg`** (preferred) or `thumbnail.png` to the root of the game repository. Keep the artwork wide (about 1200×700), readable at small card sizes, and representative of the game. The homepage checks these standard filenames automatically; if neither exists, it shows the default arcade artwork.
+6. Use the same TappyToe Arcade footer pattern as SG Money Quest: place the TappyToe logo at the bottom of the page and link it to `https://tappytoe.github.io/`. Do **not** add a prominent homepage/back-to-arcade link in the game header. Keep the header focused on the game itself.
+7. Give the game a consistent visual identity, responsive layout, accessible labels, and a clear mobile-friendly play experience.
+8. Wait a minute, then refresh https://tappytoe.github.io/.
 
-The portal searches GitHub's public repository API for the `tappytoe-game` topic. It does not need a token or any changes to the portal code when you add a new tagged game. SG Money Quest is currently featured separately.
+The portal searches GitHub's public repository API for the `tappytoe-game` topic. It does not need a token or manual card entry for each new tagged game. It looks for `thumbnail.svg` first and `thumbnail.png` second in each game's repository root.
 
 ## Development
 
