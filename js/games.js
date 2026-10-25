@@ -4,14 +4,13 @@
   const OWNER = "tappytoe";
   const TOPIC = "tappytoe-game";
   const FEATURED_REPOS = new Set(["sg-money-quest", "tappytoe.github.io"]);
-  const status = document.getElementById("discovery-status");
   const grid = document.getElementById("discovered-games");
 
   function displayName(repoName) {
-    const knownNames = { "sg-primary-exam": "Primary Quest" };
+    const knownNames = { "sg-primary-exam": "Primary Quest", "math-market": "Maths Market" };
     return knownNames[repoName.toLowerCase()] || repoName
       .replace(/[-_]+/g, " ")
-      .replace(/\\b\\w/g, (letter) => letter.toUpperCase());
+      .replace(/\b\w/g, (letter) => letter.toUpperCase());
   }
 
   function createGameCard(repo) {
@@ -20,37 +19,38 @@
 
     const art = document.createElement("a");
     art.className = "game-art discovered-game-art";
-    art.href = repo.html_url;
-    art.target = "_blank";
-    art.rel = "noopener noreferrer";
-    art.setAttribute("aria-label", "Open " + displayName(repo.name));
+    art.href = repo.homepage && /^https?:\/\//i.test(repo.homepage)
+      ? repo.homepage
+      : "https://" + OWNER + ".github.io/" + encodeURIComponent(repo.name) + "/";
+    art.setAttribute("aria-label", "Play " + displayName(repo.name));
     const artLabel = document.createElement("span");
     artLabel.className = "art-label";
-    artLabel.textContent = "TAPPYTOE GAME";
+    artLabel.textContent = "LEARN & PLAY";
     art.appendChild(artLabel);
 
     const info = document.createElement("div");
     info.className = "game-info";
-
     const row = document.createElement("div");
     row.className = "game-title-row";
     const titleWrap = document.createElement("div");
     const category = document.createElement("p");
     category.className = "game-category";
-    category.textContent = "COMMUNITY • GAME";
+    category.textContent = "TAPPYTOE • GAME";
     const title = document.createElement("h3");
     title.textContent = displayName(repo.name);
     titleWrap.append(category, title);
-
     const badge = document.createElement("span");
     badge.className = "status-pill live";
     const dot = document.createElement("span");
-    badge.append(dot, document.createTextNode(" DISCOVERED"));
+    badge.append(dot, document.createTextNode(" PLAY NOW"));
     row.append(titleWrap, badge);
 
     const description = document.createElement("p");
-    const knownDescriptions = { "sg-primary-exam": "A playful Singapore Primary 3–5 maths adventure. Choose your level, solve questions and earn stars." };
-    description.textContent = knownDescriptions[repo.name.toLowerCase()] || repo.description || "A new game from TappyToe. Open the repository to learn more.";
+    const knownDescriptions = {
+      "sg-primary-exam": "A playful Singapore Primary 3–5 maths adventure.",
+      "math-market": "A colourful maths adventure for Primary 1–6. Explore, solve, and play."
+    };
+    description.textContent = knownDescriptions[repo.name.toLowerCase()] || repo.description || "A little game to learn and play.";
 
     const link = document.createElement("a");
     link.className = "text-link";
@@ -79,17 +79,9 @@
       const games = (data.items || [])
         .filter((repo) => !FEATURED_REPOS.has(repo.name.toLowerCase()) && !repo.private && !repo.archived)
         .sort((a, b) => a.name.localeCompare(b.name));
-
-      if (games.length === 0) {
-        status.textContent = "";
-        return;
-      }
-
       games.forEach((repo) => grid.appendChild(createGameCard(repo)));
-      status.textContent = games.length === 1 ? "1 more game discovered" : games.length + " more games discovered";
     } catch (error) {
       console.error("Could not load TappyToe games:", error);
-      status.textContent = "We couldn't load the latest games right now. Try refreshing in a moment.";
     }
   }
 
