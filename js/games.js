@@ -48,7 +48,8 @@
     row.append(titleWrap, badge);
 
     const description = document.createElement("p");
-    description.textContent = repo.description || "A new game from TappyToe. Open the repository to learn more.";
+    const knownDescriptions = { "sg-primary-exam": "A playful Singapore Primary 3–5 maths adventure. Choose your level, solve questions and earn stars." };
+    description.textContent = knownDescriptions[repo.name.toLowerCase()] || repo.description || "A new game from TappyToe. Open the repository to learn more.";
 
     const link = document.createElement("a");
     link.className = "text-link";
