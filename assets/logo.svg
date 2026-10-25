@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+<title id="title">TappyToe logo</title>
+<rect x="4" y="4" width="120" height="120" rx="32" fill="#d7fb67"/>
+<path d="M47 31c0-4 3-7 7-7h15c4 0 7 3 7 7v14h19c5 0 9 4 9 9v10c0 5-4 9-9 9H76v18c0 7 5 12 12 12h5c5 0 9 4 9 9v1c0 5-4 9-9 9H82c-23 0-35-15-35-37V73H34c-5 0-9-4-9-9V54c0-5 4-9 9-9h13z" fill="#171821" transform="translate(0 -4) scale(.95)"/>
+<circle cx="94" cy="91" r="12" fill="#a78bfa"/>
+</svg>
