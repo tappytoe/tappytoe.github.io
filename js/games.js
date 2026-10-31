@@ -27,11 +27,11 @@
     thumbnail.className = "game-thumbnail";
     thumbnail.alt = "";
     thumbnail.loading = "lazy";
-    thumbnail.src = "https://raw.githubusercontent.com/" + OWNER + "/" + encodeURIComponent(repo.name) + "/main/thumbnail.svg";
+    thumbnail.src = "https://raw.githubusercontent.com/" + OWNER + "/" + encodeURIComponent(repo.name) + "/main/thumbnail.svg?v=2";
     thumbnail.onerror = function () {
       if (!thumbnail.dataset.pngFallback) {
         thumbnail.dataset.pngFallback = "1";
-        thumbnail.src = "https://raw.githubusercontent.com/" + OWNER + "/" + encodeURIComponent(repo.name) + "/main/thumbnail.png";
+        thumbnail.src = "https://raw.githubusercontent.com/" + OWNER + "/" + encodeURIComponent(repo.name) + "/main/thumbnail.png?v=2";
       } else {
         thumbnail.remove();
       }
