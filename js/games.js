@@ -38,11 +38,6 @@
     };
     art.appendChild(thumbnail);
 
-    const artLabel = document.createElement("span");
-    artLabel.className = "art-label";
-    artLabel.textContent = "LEARN & PLAY";
-    art.appendChild(artLabel);
-
     const info = document.createElement("div");
     info.className = "game-info";
     const row = document.createElement("div");
@@ -61,11 +56,7 @@
     row.append(titleWrap, badge);
 
     const description = document.createElement("p");
-    const knownDescriptions = {
-      "sg-primary-exam": "A playful Singapore Primary 3–5 maths adventure.",
-      "maths-market": "A colourful maths adventure for Primary 1–6. Explore, solve, and play."
-    };
-    description.textContent = knownDescriptions[repo.name.toLowerCase()] || repo.description || "A little game to learn and play.";
+    description.textContent = (repo.description || "").trim() || "Description coming soon.";
 
     const link = document.createElement("a");
     link.className = "text-link";
